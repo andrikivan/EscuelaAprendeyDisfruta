@@ -1,4 +1,4 @@
-# EscuelaAprendeyDisfruta by: Ivan Andrik
+# Escuela Aprende y Disfruta by: Ivan Andrik
 
 Desarrollado en su totalidad por Ivan Andrik, para el curso de JavaScript de NextU.
 Abarca las tecnologías y Frameworks tales como HTML, CSS, JavaScript y Bootstrap.
