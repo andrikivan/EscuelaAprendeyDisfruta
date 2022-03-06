@@ -1,34 +1,82 @@
-// Hemos omitido los acentos en los comentarios por compatibilidad
-
 //Define las variables que necesites
 
+var futuros = [];
+var pasados = [];
+var hoy;
+var eventosFuturos;
 
 $(document).ready(function () {
 
   //Carga los datos que estan en el JSON (info.json) usando AJAX
+  $.ajax({
+    url: "./info.json"
+  }).done(function (resultado) {
 
-  //Guarda el resultado en variables
+    //Guarda el resultado en variables
+    hoy = resultado.fechaActual;
+    eventos = resultado.eventos;
 
-  //Clasifica los eventos segun la fecha actual del JSON
+    //Selecciona los eventos que sean posteriores a la fecha actual del JSON
+    for(var i = 0; i < eventos.length; i++){
+      if (eventos[i].fecha < hoy){
+        futuros.push(eventos[i]);
+      }
+    }
 
-  //Ordena los eventos segun la fecha (los mas cercanos primero)
+    //Ordena los eventos segun la fecha (los mas cercanos primero)
+    futuros = futuros.sort(function(x,y){
+      if (x.fecha > y.fecha){
+        return 1;
+      }
+      return -1;
+    });
 
-  //Extrae solo dos eventos
+    //Selecciona los eventos que sean anteriores a la fecha actual del JSON
+    for(var i = 0; i < eventos.length; i++){
+      if (eventos[i].fecha < hoy){
+        pasados.push(eventos[i]);
+      }
+    }
 
-  //Ordena los eventos segun la fecha (los mas cercanos primero)
+    //Ordena los eventos segun la fecha (los mas recientes primero)
+    pasados = pasados.sort(function(x,y){
+      if (x.fecha < y.fecha){
+        return 1;
+      }
+      return -1;
+    });
 
-  //Extrae solo dos eventos
+    //Crea un string que contenga el HTML que describe el detalle del evento
+    var htmlFut = "";
 
-  //Crea un string que contenga el HTML que describe el detalle del evento
+    //Recorre el arreglo y concatena el HTML para cada evento
+    for(var j = 0; j < 2; j++){
+      htmlFut += `<div class="indexFuturos">
+              <h2>${futuros[j].nombre}</h2>
+              <p class="fechaLugarFuturo">${futuros[j].fecha}</p>
+              <p class="descrFuturo">${futuros[j].descripcion}</p>
+              </div>
+              `
+    };
 
-  //Recorre el arreglo y concatena el HTML para cada evento
+    //Crea un string que contenga el HTML que describe el detalle del evento
+    var htmlPas = "";
 
-  //Modifica el DOM agregando el html generado
+    //Recorre el arreglo y concatena el HTML para cada evento
+    for(var j = 0; j < 2; j++){
+      htmlPas += `<div class="indexPasados">
+              <h2>${pasados[j].nombre}</h2>
+              <p class="fechaLugarPasado">${pasados[j].fecha}</p>
+              <p class="descrPasado">${pasados[j].descripcion}</p>
+              </div>
+              `
+    };
 
-  //Crea un string que contenga el HTML que describe el detalle del evento
+    //Modifica el DOM agregando el html generado
+    document.getElementById("proximos").innerHTML = htmlFut;
 
-  //Recorre el arreglo y concatena el HTML para cada evento
-
-  //Modifica el DOM agregando el html generado
+    //Modifica el DOM agregando el html generado
+    document.getElementById("pasados").innerHTML = htmlPas;
+  })
 
 });
