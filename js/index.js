@@ -52,7 +52,7 @@ $(document).ready(function () {
     //Recorre el arreglo y concatena el HTML para cada evento
     for(var j = 0; j < 2; j++){
       htmlFut += `<div class="indexFuturos">
-              <h2>${futuros[j].nombre}</h2>
+              <h2><a href="detalle.html?id=`+futuros[j].id+`">${futuros[j].nombre}</a></h2>
               <p class="fechaLugarFuturo">${futuros[j].fecha}</p>
               <p class="descrFuturo">${futuros[j].descripcion}</p>
               </div>
@@ -65,7 +65,7 @@ $(document).ready(function () {
     //Recorre el arreglo y concatena el HTML para cada evento
     for(var j = 0; j < 2; j++){
       htmlPas += `<div class="indexPasados">
-              <h2>${pasados[j].nombre}</h2>
+              <h2><a href="detalle.html?id=`+pasados[j].id+`">${pasados[j].nombre}</a></h2>
               <p class="fechaLugarPasado">${pasados[j].fecha}</p>
               <p class="descrPasado">${pasados[j].descripcion}</p>
               </div>

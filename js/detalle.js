@@ -1,4 +1,3 @@
-// Hemos omitido los acentos en los comentarios por compatibilidad
 
 $(document).ready(function () {
 
@@ -17,13 +16,13 @@ $(document).ready(function () {
       return element.id == id
     })
     //Crea un string que contenga el HTML que describe el detalle del evento
-    var html = `
+    var html = `<div class="detalle">
     <h2>${evento.nombre}</h2>
-    <p>${evento.fecha}</p>
-    <p>Lugar: ${evento.lugar}</p
-    <p>Descripción: ${evento.descripcion}</p>
-    <p>Costo: ${evento.precio}</p>
-    <p>Invitados: ${evento.invitados}</p>
+    <p class="fechaLugarEvento">${evento.fecha} - ${evento.lugar}</p>
+    <p class="descrEvento">${evento.descripcion}</p>
+    <p class="costoEvento">Costo: ${evento.precio}</p>
+    <p class="invitEvento">Invitados: ${evento.invitados}</p>
+    </div>
     `
     //Modifica el DOM agregando el html generado dentro del div con id=evento
     document.getElementById("evento").innerHTML = html

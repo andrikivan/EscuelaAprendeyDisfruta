@@ -23,8 +23,8 @@ function validar(formulario) {
       document.getElementById("errorEmail").innerText = "";
   }
 
-  if (formulario.contraseña.value.trim().length < 8) {
-      document.getElementById("errorContraseña").innerText = "Pruebe otra contraseña, mínimo 8 caracteres.";
+  if (formulario.contraseña.value.trim().length < 7) {
+      document.getElementById("errorContraseña").innerText = "Pruebe otra contraseña, mínimo 7 caracteres.";
       formulario.contraseña.focus();
       return false;
   }

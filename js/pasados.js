@@ -36,7 +36,7 @@ $(document).ready(function () {
     //Recorre el arreglo y concatena el HTML para cada evento
     for(var j = 0; j < pasados.length; j++){
       html += `<div class="itemPasados">
-              <h2>${pasados[j].nombre}</h2>
+              <h2><a href="detalle.html?id=`+pasados[j].id+`">${pasados[j].nombre}</a></h2>
               <p class="fechaLugarPasado">${pasados[j].fecha} - ${pasados[j].lugar}</p>
               <p class="descrPasado">${pasados[j].descripcion}</p>
               <p class="invitPasado">Invitados: ${pasados[j].invitados}</p>

@@ -124,7 +124,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Secciones Eventos
 --------------------------------------------------------------*/
-#pasados, #proximos{
+#pasados, #proximos, #evento{
     justify-content:center;
     display: flex;
 }
@@ -138,13 +138,20 @@ a:hover, a:active {
     padding: 20px;
     margin: 10px;
     width: 40%;
+    border-radius: 10px;
 }
 
-.itemPasados, .itemFuturos{
+.itemPasados, .itemFuturos, .detalle{
     background-color: #fff;
     padding: 20px;
     margin: 10px;
     width: 85%;
+    border-radius: 10px;
+}
+
+.detalle h2 {
+    color:rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .itemPasados h2, .itemFuturos h2, .indexPasados h2, .indexFuturos h2 {
@@ -152,18 +159,22 @@ a:hover, a:active {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.itemPasados .fechaLugarPasado, .itemFuturos .fechaLugarFuturo, .indexPasados .fechaLugarPasado, .indexFuturos .fechaLugarFuturo {
+.detalle .fechaLugarEvento, .itemPasados .fechaLugarPasado, .itemFuturos .fechaLugarFuturo, .indexPasados .fechaLugarPasado, .indexFuturos .fechaLugarFuturo {
     color: rgb(160, 135, 135);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.itemPasados .descrPasado, .itemFuturos .descrFuturo, .indexPasados .descrPasado, .indexFuturos .descrFuturo {
+.detalle .descrEvento, .itemPasados .descrPasado, .itemFuturos .descrFuturo, .indexPasados .descrPasado, .indexFuturos .descrFuturo {
     color: rgb(0, 0, 0);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.itemPasados .invitPasado, .itemFuturos .invitFuturo {
+.detalle .costoEvento, .itemPasados .invitPasado, .itemFuturos .invitFuturo {
     color: rgb(1, 95, 133);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.detalle .invitEvento {
+    color: rgb(133, 38, 1);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
